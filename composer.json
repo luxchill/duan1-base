@@ -1,0 +1,19 @@
+{
+    "name": "user/duan1",
+    "autoload": {
+        "psr-4": {
+            "User\\Duan1\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David Hoang",
+            "email": "anhnhph33991@fpt.edu.vn"
+        }
+    ],
+    "require": {
+        "bramus/router": "^1.6",
+        "eftec/bladeone": "^4.11",
+        "ext-pdo": "*"
+    }
+}
