@@ -10,4 +10,6 @@ class DashboardController extends Controller
 	{
 		return $this->renderViewAdmin('dashboard');
 	}
+
+
 }

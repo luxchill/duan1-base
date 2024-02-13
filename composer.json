@@ -14,6 +14,7 @@
     "require": {
         "bramus/router": "^1.6",
         "eftec/bladeone": "^4.11",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "symfony/dotenv": "6.4.x-dev"
     }
 }

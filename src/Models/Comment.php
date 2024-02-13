@@ -4,12 +4,12 @@ namespace User\Duan1\Models;
 
 use User\Duan1\Commons\Model;
 
-class Category extends Model
+class Comment extends Model
 {
 	public function getAll()
 	{
 		try {
-			$sql = "SELECT * FROM category ORDER BY id DESC ";
+			$sql = "SELECT * FROM comments ORDER BY id DESC ";
 			$stmt = $this->connect->prepare($sql);
 			$stmt->execute();
 			return $stmt->fetchAll();
@@ -21,7 +21,7 @@ class Category extends Model
 	public function getById($id)
 	{
 		try {
-			$sql = "SELECT * FROM category WHERE id = :id";
+			$sql = "SELECT * FROM comments WHERE id = :id";
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
@@ -31,24 +31,30 @@ class Category extends Model
 		}
 	}
 
-	public function insert($name)
+	public function insert($content, $id_user, $id_product, $time_comment)
 	{
 		try {
-			$sql = "INSERT INTO category (name) VALUES (:name)";
+			$sql = "INSERT INTO comments (content, id_user, id_product, time_comment) VALUES (:content, :id_user, :id_product, :time_comment)";
 			$stmt = $this->connect->prepare($sql);
-			$stmt->bindParam(":name", $name);
+			$stmt->bindParam(":content", $content);
+			$stmt->bindParam(":id_user", $id_user);
+			$stmt->bindParam(":id_product", $id_product);
+			$stmt->bindParam(":time_comment", $time_comment);
 			$stmt->execute();
 		}catch (\Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function update($id, $name)
+	public function update($id, $content, $id_user, $id_product, $time_comment)
 	{
 		try {
-			$sql = "UPDATE category SET name = :name WHERE id = :id";
+			$sql = "UPDATE comments SET content = :content, id_user = :id_user, id_product = :id_product, time_comment = :time_comment WHERE id = :id";
 			$stmt = $this->connect->prepare($sql);
-			$stmt->bindParam(":name", $name);
+			$stmt->bindParam(":content", $content);
+			$stmt->bindParam(":id_user", $id_user);
+			$stmt->bindParam(":id_product", $id_product);
+			$stmt->bindParam(":time_comment", $time_comment);
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
 		}catch (\Exception $e){
@@ -59,7 +65,7 @@ class Category extends Model
 	public function deleteById($id)
 	{
 		try {
-			$sql = "DELETE FROM category WHERE id = :id";
+			$sql = "DELETE FROM comments WHERE id = :id";
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
@@ -68,19 +74,5 @@ class Category extends Model
 		}
 	}
 
-	public function getForMenu()
-	{
-		try {
-			$sql = "SELECT id, name FROM category";
 
-			$stmt = $this->connect->prepare($sql);
-
-			$stmt->execute();
-
-			return $stmt->fetchAll();
-		} catch (\Exception $e) {
-			echo 'ERROR: ' . $e->getMessage();
-			die;
-		}
-	}
 }

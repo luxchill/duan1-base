@@ -16,7 +16,8 @@
 
 <body>
 
-<h1>Page table Index Comments</h1>
+<h1>Page Show Products</h1>
+<a href="/duan1-php/admin/products" class="btn btn-warning">Create Product</a>
 
 <table class="table">
     <thead>
@@ -26,24 +27,16 @@
         <th scope="col">Id_User</th>
         <th scope="col">Id_Product</th>
         <th scope="col">Time_Comment</th>
-        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
-    @foreach($comments as $comment)
         <tr>
-            <th scope="row">{{$comment['id']}}</th>
-            <td>{{$comment['content']}}</td>
-            <td>{{$comment['id_user']}}</td>
-            <td>{{$comment['id_product']}}</td>
-            <td>{{$comment['time_comment']}}</td>
-            <td>
-                <a href="comments/{{$comment['id']}}/show" class="btn btn-warning">Chi Tiết</a>
-                <a href="comments/{{$comment['id']}}/update" class="btn btn-info">Update</a>
-                <a href="comments/{{$comment['id']}}/delete" onclick="return confirm('Bạn có chắc muốn xoá loại hàng: {{$comment['content']}} ?')" class="btn btn-danger">Delete</a>
-            </td>
+            <th>{{$comment['id']}}</th>
+            <th>{{$comment['content']}}</th>
+            <th>{{$comment['id_user']}}</th>
+            <th>{{$comment['id_product']}}</th>
+            <th>{{$comment['time_comment']}}</th>
         </tr>
-    @endforeach
     </tbody>
 </table>
 

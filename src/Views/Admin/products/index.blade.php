@@ -12,44 +12,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/duan1-php/admin">Admin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/duan1-php/admin/users">Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/duan1-php/admin/products">Products</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
+<h1>Page table Index Products</h1>
+<a class="btn btn-warning" href="products/create">Create new Product</a>
 
-<h1>Page Table Products</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+        <th scope="col">Description</th>
+        <th scope="col">Views</th>
+        <th scope="col">Category</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($products as $product)
+        <tr>
+            <th scope="row">{{$product['id']}}</th>
+            <td>{{$product['name']}}</td>
+            <td>{{$product['price']}}</td>
+            <td>
+                <img class="rounded-circle shadow-4" style="width: 70px; height: 70px" src="data:image/jpeg;base64,{{$product['image']}}" />
+            </td>
+            <td>{{$product['description']}}</td>
+            <td>{{$product['views'] ?? '0'}}</td>
+            <td>{{$product['id_category']}}</td>
+            <td>
+                <a href="products/{{$product['id']}}/show" class="btn btn-warning">Chi Tiết</a>
+                <a href="products/{{$product['id']}}/update" class="btn btn-info">Update</a>
+                <a href="products/{{$product['id']}}/delete" onclick="return confirm('Bạn có chắc muốn xoá sản phẩm: {{$product['name']}} ?')" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
+
+
+
 </body>
 </html>
