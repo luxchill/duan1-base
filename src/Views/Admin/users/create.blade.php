@@ -12,12 +12,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Page crreate user admin</h1>
     <div class="container">
-        <h1>Form Register</h1>
+        <h1>Form Create User</h1>
 
         <div class="row">
-            <a href="/duan1-php/admin" class="">Admin</a>
+            <div class="gap-2 flex">
+                <a href="/duan1-php/admin" class="">Admin</a>
+                <a href="/duan1-php/admin/users/" class="">Users</a>
+            </div>
             <form action="" method="post">
                 <div class="mb-3 mt-3">
                     <label for="name" class="form-label">Username:</label>
@@ -34,6 +36,7 @@
                     <input type="text" class="form-control" id="password" required
                            placeholder="Enter password" name="password">
                 </div>
+                <button type="submit" class="btn btn-primary">Create</button>
             </form>
         </div>
     </div>

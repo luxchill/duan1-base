@@ -13,7 +13,7 @@ class User extends Model
 	public function getAll()
 	{
 		try {
-			$sql = "SELECT * FROM users";
+			$sql = "SELECT * FROM users ORDER BY id DESC ";
 			$stmt = $this->connect->prepare($sql);
 			$stmt->execute();
 			return $stmt->fetchAll();
@@ -25,12 +25,11 @@ class User extends Model
 	public function getById($id)
 	{
 		try {
-			echo $id;
-//			$sql = "SELECT * FROM users WHERE id = :id";
-//			$stmt = $this->connect->prepare($sql);
-//			$stmt->bindParam(":id", $id);
-//			$stmt->execute();
-//			return $stmt->fetch();
+			$sql = "SELECT * FROM users WHERE id = :id";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->bindParam(":id", $id);
+			$stmt->execute();
+			return $stmt->fetch();
 		} catch (\Exception $e) {
 			die($e->getMessage());
 		}

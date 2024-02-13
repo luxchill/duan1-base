@@ -29,11 +29,42 @@ class UserController extends Controller
 	public function create()
 	{
 		if(!empty($_POST)){
-//			$this->user->insert($_POST['username'],$_POST['email'],$_POST['password']);
-			echo "success";
+			$this->user->insert($_POST['username'],$_POST['email'],$_POST['password']);
+			header('location: /duan1-php/admin/users');
+			exit();
 		}
 
 		return $this->renderViewAdmin($this->folder. __FUNCTION__);
+	}
+
+	public function show($id)
+	{
+		$data['user'] = $this->user->getById($id);
+		if(empty($data['user'])){
+			die(404);
+		}
+
+		return $this->renderViewAdmin($this->folder . __FUNCTION__, $data);
+	}
+
+	public function update($id)
+	{
+		$data['user'] = $this->user->getById($id);
+
+		if(!empty($_POST)){
+			$this->user->update($_POST['id'],$_POST['username'],$_POST['email'],$_POST['password']);
+			// khi update thành công sẽ thêm session success vào
+			$_SESSION['success'] = 'Thao tác thành công!';
+			header('location: /duan1-php/admin/users');
+			exit();
+		}
+		return $this->renderViewAdmin($this->folder . __FUNCTION__, $data);
+	}
+
+	public function delete($id)
+	{
+		$this->user->deleteByID($id);
+		header('location: /duan1-php/admin/users');
 	}
 
 }
