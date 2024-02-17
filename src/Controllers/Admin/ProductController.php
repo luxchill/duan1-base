@@ -29,7 +29,7 @@ class ProductController extends Controller
 	public function show($id)
 	{
 		$data['product'] = $this->product->getById($id);
-		if(empty($data['product'])){
+		if (empty($data['product'])) {
 			die(404);
 		}
 
@@ -53,8 +53,8 @@ class ProductController extends Controller
 	public function update($id)
 	{
 		$data['product'] = $this->product->getById($id);
-		if(!empty($_POST)){
-			$this->product->update($id,$_POST['name'],$_POST['price'],$_POST['image'],$_POST['description'],$_POST['views'],$_POST['id_category']);
+		if (!empty($_POST)) {
+			$this->product->update($id, $_POST['name'], $_POST['price'], $_POST['image'], $_POST['description'], $_POST['views'], $_POST['id_category']);
 			// khi update thành công sẽ thêm session success vào
 			$_SESSION['success'] = 'Thao tác thành công!';
 			header('location: /duan1-php/admin/products');
@@ -69,6 +69,16 @@ class ProductController extends Controller
 		header('location: /duan1-php/admin/products');
 	}
 
-
-
+	public function page($id = '1')
+	{
+		$limit = 2;
+		$initial_page = ($id - 1) * $limit;
+		// $total = $this->product->getTotalCount();
+		$total = $this->product->getTotalCount();
+		// $total_rows = $this->category->getTotalCount();
+		$total_page = ceil($total / $limit);
+		$data['total_page'] = $total_page;
+		$data['products'] = $this->product->getAllPage($limit, $initial_page);
+		return $this->renderViewAdmin($this->folder . 'index', $data);
+	}
 }

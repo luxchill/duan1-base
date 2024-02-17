@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+@section('title')
+    Show
+@endsection
 
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+@section('content')
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
-
-<h1>Page Show Products</h1>
-<a href="/duan1-php/admin/products" class="btn btn-warning">Create Product</a>
+<h1>Page Show Comments</h1>
+<a href="/duan1-php/admin/comments/create" class="btn btn-warning">Create Comment</a>
 
 <table class="table">
     <thead>
@@ -40,6 +30,4 @@
     </tbody>
 </table>
 
-</body>
-
-</html>
+@endsection

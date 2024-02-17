@@ -6,10 +6,6 @@ use User\Duan1\Commons\Model;
 
 class User extends Model
 {
-	public function sayHello()
-	{
-		echo "Hello say hello";
-	}
 	public function getAll()
 	{
 		try {
@@ -49,14 +45,15 @@ class User extends Model
 		}
 	}
 
-	public function update($id, $username, $email, $password)
+	public function update($id, $username, $email, $password, $image)
 	{
 		try {
-			$sql = "UPDATE users SET username = :username, email = :email, password = :password WHERE id = :id";
+			$sql = "UPDATE users SET username = :username, email = :email, password = :password, image = :image WHERE id = :id";
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindParam(":username", $username);
 			$stmt->bindParam(":email", $email);
 			$stmt->bindParam(":password", $password);
+			$stmt->bindParam(":image", $image);
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
 		} catch (\Exception $e) {
@@ -71,7 +68,20 @@ class User extends Model
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
-		}catch (\Exception $e){
+		} catch (\Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getByEmail($email)
+	{
+		try {
+			$sql = "SELECT * FROM users WHERE email = :email";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->bindParam(":email", $email);
+			$stmt->execute();
+			return $stmt->fetch();
+		} catch (\Exception $e) {
 			die($e->getMessage());
 		}
 	}

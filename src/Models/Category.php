@@ -13,7 +13,21 @@ class Category extends Model
 			$stmt = $this->connect->prepare($sql);
 			$stmt->execute();
 			return $stmt->fetchAll();
-		}catch (\Exception $e){
+		} catch (\Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getAllPage($limit, $initial_page)
+	{
+		try {
+			$sql = "SELECT * FROM category ORDER BY id DESC LIMIT :limit OFFSET :offset";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->bindParam(':limit', $limit);
+			$stmt->bindParam(':offset', $initial_page);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		} catch (\Exception $e) {
 			die($e->getMessage());
 		}
 	}
@@ -26,7 +40,7 @@ class Category extends Model
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
 			return $stmt->fetch();
-		}catch (\Exception $e){
+		} catch (\Exception $e) {
 			die($e->getMessage());
 		}
 	}
@@ -38,7 +52,7 @@ class Category extends Model
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindParam(":name", $name);
 			$stmt->execute();
-		}catch (\Exception $e){
+		} catch (\Exception $e) {
 			die($e->getMessage());
 		}
 	}
@@ -51,7 +65,7 @@ class Category extends Model
 			$stmt->bindParam(":name", $name);
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
-		}catch (\Exception $e){
+		} catch (\Exception $e) {
 			die($e->getMessage());
 		}
 	}
@@ -63,7 +77,7 @@ class Category extends Model
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
-		}catch (\Exception $e){
+		} catch (\Exception $e) {
 			die($e->getMessage());
 		}
 	}
@@ -81,6 +95,18 @@ class Category extends Model
 		} catch (\Exception $e) {
 			echo 'ERROR: ' . $e->getMessage();
 			die;
+		}
+	}
+
+	public function getTotalCount()
+	{
+		try {
+			$sql = "SELECT COUNT(*) FROM category";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchColumn();
+		} catch (\Exception $e) {
+			die($e->getMessage());
 		}
 	}
 }

@@ -77,4 +77,42 @@ class Product extends Model
 			die($e->getMessage());
 		}
 	}
+
+	public function filterCategory($id)
+	{
+		try {
+			$sql = "SELECT * FROM products WHERE id_category = :id_category";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->bindParam(":id_category", $id);
+			$stmt->execute();
+			return $stmt->fetch();
+		}catch (\Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+	public function getTotalCount()
+	{
+		try {
+			$sql = "SELECT COUNT(*) FROM products";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchColumn();
+		} catch (\Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getAllPage($limit, $initial_page){
+		try {
+			$sql = "SELECT * FROM products ORDER BY id DESC LIMIT :limit OFFSET :offset";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->bindParam(':limit', $limit);
+			$stmt->bindParam(':offset', $initial_page);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		} catch (\Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
