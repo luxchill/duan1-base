@@ -34,7 +34,7 @@
 
 @endsection
 
-@section('script')
+<!-- @section('script')
     <script>
         const handleToCard = (id, name, price, image, id_category) => {
             const count__card = document.querySelector('.count__card')
@@ -55,7 +55,7 @@
             })
 
         }
-    </script>
+    </script> -->
 
 
 @endsection
