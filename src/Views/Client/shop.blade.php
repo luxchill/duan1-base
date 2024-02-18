@@ -34,6 +34,7 @@
 
 @endsection
 
+<<<<<<< HEAD
 {{--@section('script')--}}
 {{--    <script>--}}
 {{--        const handleToCard = (id, name, price, image, id_category) => {--}}
@@ -56,6 +57,30 @@
 
 {{--        }--}}
 {{--    </script>--}}
+=======
+<!-- @section('script')
+    <script>
+        const handleToCard = (id, name, price, image, id_category) => {
+            const count__card = document.querySelector('.count__card')
+            // console.log(id, name, price, id_category);
+            $.ajax({
+                type: 'POST',
+                url: '/duan1-php/cart/',
+                data:{
+                    id, name, price, image, id_category
+                },
+                success: function (response){
+                    count__card.innerHTML = response;
+                    alert('123131');
+                },
+                error: function (err){
+                    console.log(err)
+                }
+            })
+
+        }
+    </script> -->
+>>>>>>> origin/master
 
 
 {{--@endsection--}}

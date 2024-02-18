@@ -10,7 +10,7 @@
 
     <h1>Page news</h1>
 
-    @section('script')
+    @section('script')0
         {{--    @push('scripts')--}}
         <script>
 
