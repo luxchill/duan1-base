@@ -69,5 +69,56 @@ href="{{ $value['url'] }}">{{ $value['name'] }}</a>
             {{ $value['name'] }}
         </a>
         @endforeach
+            <div class="right menu">
+                @if(!isset($_SESSION['user']))
+                    <a href="/duan1-php/login" class="ui blue button">Login</a>
+                    <a class="ui gray button" href="/duan1-php/register">
+                        Register
+                    </a>
+                @else
+{{--                    <a href="" class="ui avatar image">--}}
+{{--                        <img src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}" alt="">--}}
+{{--                        {{$_SESSION['user']['username']}}--}}
+{{--                    </a>--}}
+
+                    <div class="ui menu">
+                        <a class="item">
+                            Home
+                        </a>
+                        <div class="ui pointing dropdown link item">
+                            <span class="">Shopping</span>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item">
+                                    <i class="dropdown icon"></i>
+                                    <span class="text">Clothing</span>
+                                    <div class="menu">
+                                        <div class="header">Mens</div>
+                                        <div class="item">Shirts</div>
+                                        <div class="item">Pants</div>
+                                        <div class="item">Jeans</div>
+                                        <div class="item">Shoes</div>
+                                        <div class="divider"></div>
+                                        <div class="header">Womens</div>
+                                        <div class="item">Dresses</div>
+                                        <div class="item">Shoes</div>
+                                        <div class="item">Bags</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="item">
+                            Forums
+                        </a>
+                        <a class="item">
+                            Contact Us
+                        </a>
+                    </div>
+
+
+{{--                    <a href="/duan1-php/profile/{{$_SESSION['user']['id']}}" class="ui yellow button">{{$_SESSION['user']['username']}} - Profile</a>--}}
+{{--                    <a href="/duan1-php/{{$_SESSION['user']['id']}}/logout" class="ui red button">Logout</a>--}}
+                @endif
+            </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/duan1-php/">LuxChill</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -34,10 +34,59 @@
                     <a href="/duan1-php/register" class="btn btn-warning">Register</a>
                 @else
                     <a href="/duan1-php/profile/{{$_SESSION['user']['id']}}" class="btn btn-info"><i class="fa-regular fa-user"></i>
-                        - {{$_SESSION['user']['username']}}</a>
-                    <a class="btn btn-warning" href="/duan1-php/{{$_SESSION['user']['id']}}/logout"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #616161;"></i></a>
-                @endif
-            </div>
+- {{$_SESSION['user']['username']}}</a>
+<a class="btn btn-warning" href="/duan1-php/{{$_SESSION['user']['id']}}/logout"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #616161;"></i></a>
+@endif
+</div>
+</div>
+</div>
+</nav> --}}
+
+
+@php
+$menuItems = [
+[
+'id' => 1,
+'name' => 'Home',
+'url' => '/duan1-php/'
+],
+[
+'id' => 2,
+'name' => 'Shop',
+'url' => '/duan1-php/shop'
+],
+[
+'id' => 3,
+'name' => 'About',
+'url' => '/duan1-php/about'
+],
+[
+'id' => 4,
+'name' => 'News',
+'url' => '/duan1-php/news'
+]
+];
+
+$active = $_SERVER['REQUEST_URI'];
+@endphp
+
+<div class="ui inverted segment">
+    <div class="ui inverted secondary pointing menu">
+        @foreach($menuItems as $key => $value)
+        <a class="item {{ $active === $value['url'] ? 'active' : '' }}" href="{{ $value['url'] }}">
+            {{ $value['name'] }}
+        </a>
+        @endforeach
+        <div class="right menu">
+            @if(!isset($_SESSION['user']))
+                <a href="/duan1-php/login" class="ui blue button">Login</a>
+                <a class="ui gray button" href="/duan1-php/register">
+                    Register
+                </a>
+            @else
+                <a href="/duan1-php/profile/{{$_SESSION['user']['id']}}" class="ui yellow button">{{$_SESSION['user']['username']}} - Profile</a>
+                <a href="/duan1-php/{{$_SESSION['user']['id']}}/logout" class="ui red button">Logout</a>
+            @endif
         </div>
     </div>
-</nav>
+</div>

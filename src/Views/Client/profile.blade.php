@@ -25,20 +25,24 @@
         @php
 
             echo $_SESSION['success'] ?? null;
+			unset($_SESSION['success']);
 
         @endphp
 
         <h1>Show Image</h1>
-        <img src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}" style="width: 500px; height: 500px">
+{{--        <img src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}" style="width: 500px; height: 500px">--}}
+        <img class="ui medium rounded image h-50" src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}" >
 
-        <h1> - Change Image</h1>
-        <form action="" method="post" enctype="multipart/form-data">
-            <input type="text" name="username" class="d-none" value="{{$_SESSION['user']['username']}}">
-            <input type="text" name="email" class="d-none" value="{{$_SESSION['user']['email']}}">
+        <div>
+            <h1> - Change Image</h1>
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="text" name="username" class="d-none" value="{{$_SESSION['user']['username']}}">
+                <input type="text" name="email" class="d-none" value="{{$_SESSION['user']['email']}}">
                 <label>Image</label>
-            <input type="file" name="image" required>
-            <button type="submit" name="submit">Submit</button>
-        </form>
+                <input type="file" name="image" required>
+                <button type="submit" name="submit" class="ui blue button">Submit</button>
+            </form>
+        </div>
 
 
     </div>
