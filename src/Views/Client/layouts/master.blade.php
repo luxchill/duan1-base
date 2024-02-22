@@ -15,10 +15,12 @@
     <script src="https://kit.fontawesome.com/12ffb45aae.js" crossorigin="anonymous"></script>
     {{-- Jquery--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {{-- Icon--}}
     <link rel="icon" href="https://png.pngtree.com/template/20190626/ourmid/pngtree-marijuana-cbd-logo-vector-image_219812.jpg">
     {{-- Semantic Css --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
     {{-- Tailwindcss --}}
     <script src="https://cdn.tailwindcss.com"></script>
     {{-- Remix Icon --}}
@@ -36,9 +38,5 @@
     </div>
     @include('layouts.footer')
     @yield('script')
-    {{--@stack('scripts')--}}
-    {{-- Semantic Js--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
 </body>
 </html>

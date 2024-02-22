@@ -15,7 +15,7 @@ use User\Duan1\Controllers\Client\AuthController;
 use User\Duan1\Controllers\Client\ProfileController;
 use User\Duan1\Controllers\Client\NewController;
 use User\Duan1\Controllers\Client\CartController;
-use User\Duan1\Models\Category;
+use User\Duan1\Controllers\Client\AboutController;
 
 // Create router instance
 $router = new Router();
@@ -32,7 +32,7 @@ $router->match('GET|POST', '/profile/{id}', ProfileController::class . '@show');
 
 $router->get('/cart', CartController::class . '@index');
 //$router->get('/cart/{id}',CartController::class . '@index');
-
+$router->get('/about', AboutController::class . "@index");
 
 $router->get('/{id}/logout', AuthController::class . '@logout');
 
@@ -67,7 +67,7 @@ $router->mount('/admin', function () use ($router) {
 		$router->match('GET|POST', '/{id}/update', ProductController::class . '@update');
 		$router->get('/{id}/show', ProductController::class . '@show');
 		$router->get('/{id}/delete', ProductController::class . '@delete');
-		$router->get('/{id}', ProductController::class . '@page');
+		$router->get('/{page}', ProductController::class . '@page');
 	});
 
 	// Category Manager
@@ -79,7 +79,7 @@ $router->mount('/admin', function () use ($router) {
 		$router->get('/{id}/delete', CategoryController::class . '@delete');
 		$router->get('/{id}', CategoryController::class . '@page');
 	});
-
+	// Comments Manager
 	$router->mount('/comments', function () use ($router) {
 		$router->get('/', CommentController::class . '@index');
 		$router->match('GET|POST', '/create', CommentController::class . '@create');

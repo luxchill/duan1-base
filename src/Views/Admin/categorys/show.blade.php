@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-
+    <div class=" h-screen">
         <h1>Page Show Category</h1>
         <a href="/duan1-php/admin/categorys" class="btn btn-warning">Table Category</a>
 
@@ -23,4 +23,5 @@
             </tr>
             </tbody>
         </table>
+    </div>
 @endsection

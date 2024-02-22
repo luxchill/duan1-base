@@ -32,12 +32,14 @@ class CategoryController extends Controller
 
 	public function show($id)
 	{
-		$data['category'] = $this->category->getById($id);
-		if (empty($data['category'])) {
+		$category = $this->category->getById($id);
+		if (empty($category)) {
 			die(404);
 		}
 
-		return $this->renderViewAdmin($this->folder . __FUNCTION__, $data);
+		return $this->renderViewAdmin($this->folder . __FUNCTION__,
+			['category' => $category]
+		);
 	}
 
 	public function update($id)

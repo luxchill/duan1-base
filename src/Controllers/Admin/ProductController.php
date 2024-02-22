@@ -17,13 +17,13 @@ class ProductController extends Controller
 
 	public function index()
 	{
-		$data['products'] = $this->product->getAllProducts();
-
-		if (empty($data['products'])) {
-			die(404);
-		}
-
-		return $this->renderViewAdmin($this->folder . __FUNCTION__, $data);
+//		$data['products'] = $this->product->getAllProducts();
+//
+//		if (empty($data['products'])) {
+//			die(404);
+//		}
+//
+//		return $this->renderViewAdmin($this->folder . __FUNCTION__, $data);
 	}
 
 	public function show($id)
@@ -63,22 +63,27 @@ class ProductController extends Controller
 		return $this->renderViewAdmin($this->folder . __FUNCTION__, $data);
 	}
 
-	public function delete($id)
+	public function delete($id): void
 	{
 		$this->product->deleteByID($id);
 		header('location: /duan1-php/admin/products');
 	}
 
-	public function page($id = '1')
+	public function page($page = '1')
 	{
-		$limit = 2;
-		$initial_page = ($id - 1) * $limit;
-		// $total = $this->product->getTotalCount();
+		$limit = 5;
+		$initial_page = ($page - 1) * $limit;
 		$total = $this->product->getTotalCount();
-		// $total_rows = $this->category->getTotalCount();
 		$total_page = ceil($total / $limit);
-		$data['total_page'] = $total_page;
-		$data['products'] = $this->product->getAllPage($limit, $initial_page);
-		return $this->renderViewAdmin($this->folder . 'index', $data);
+		$products = $this->product->getAllPage($limit, $initial_page);
+//		$data['total_page'] = $total_page;
+//		$data['products'] = $this->product->getAllPage($limit, $initial_page);
+		return $this->renderViewAdmin($this->folder . 'index',
+			[
+				'page' => $page,
+				'total_page' => $total_page,
+				'products' => $products
+			]
+		);
 	}
 }

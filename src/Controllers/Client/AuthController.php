@@ -8,7 +8,7 @@ use User\Duan1\Models\User;
 class AuthController extends Controller
 {
 	protected User $user;
-	protected $folder = 'Auth.';
+	protected string $folder = 'Auth.';
 
 	public function __construct()
 	{
@@ -22,9 +22,9 @@ class AuthController extends Controller
 			$password = trim($_POST['password']);
 			$user = $this->user->getByEmail($email);
 
-			echo "<pre>";
-			var_dump($user);
-			echo "</pre>";
+			// echo "<pre>";
+			// var_dump($user);
+			// echo "</pre>";
 
 
 			if ($user) {
@@ -38,9 +38,9 @@ class AuthController extends Controller
 						'is_login' => true
 					];
 
-					if($user['role'] != 1){
+					if ($user['role'] != 1) {
 						header('location: /duan1-php/');
-					}else{
+					} else {
 						header('location: /duan1-php/admin');
 					}
 				} else {
@@ -55,27 +55,25 @@ class AuthController extends Controller
 
 	public function register()
 	{
-		if(!empty($_POST)){
+		if (!empty($_POST)) {
 			$username = $_POST['username'];
 			$email = $_POST['email'];
 			$password = $_POST['password'];
 
-//			echo $password . "</br>";
-//			echo $email . "</br>";
-//			echo $username . "</br>";
+			//			echo $password . "</br>";
+			//			echo $email . "</br>";
+			//			echo $username . "</br>";
 			$this->user->insert($username, $email, $password);
-//			$_SESSION['success'] = 'Đăng kí thành công';
+			//			$_SESSION['success'] = 'Đăng kí thành công';
 			header('location: /duan1-php/login');
 		}
 
 		return $this->renderViewClient($this->folder . __FUNCTION__);
-
 	}
 
 	public function logout()
 	{
 		unset($_SESSION['user']);
-		header('location: /duan1-php/');
+		return header('location: /duan1-php/');
 	}
-
 }

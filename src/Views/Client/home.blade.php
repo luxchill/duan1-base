@@ -52,11 +52,13 @@ $listImages = [
 ],
 ]
 @endphp
-<div class="banner h-96 w-screen">
+<div class="banner w-screen" style="height: 500px; ">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach($listImages as $image)
-            <div class="swiper-slide "><img src="{{ $image['url'] }}" alt="{{ $image['id'] }}" class="object-none"></div>
+            <div class="swiper-slide">
+                <img src="{{ $image['url'] }}" alt="{{ $image['id'] }}" class="object-none">
+        </div>
             @endforeach
             {{-- <div class="swiper-slide">Slide 2</div>
             <div class="swiper-slide">Slide 3</div>

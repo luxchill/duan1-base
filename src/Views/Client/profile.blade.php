@@ -17,6 +17,10 @@
                             echo "User";
                         }else{
 							echo "<a href='/duan1-php/admin'>Admin Manager</a>";
+							echo "<a class='ui basic button' href='/duan1-php/admin'>
+  <i class='icon user'></i>
+  Admin - Manager
+</a>";
                         }
 
     @endphp
@@ -30,8 +34,8 @@
         @endphp
 
         <h1>Show Image</h1>
-{{--        <img src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}" style="width: 500px; height: 500px">--}}
-        <img class="ui medium rounded image h-50" src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}" >
+        {{--        <img src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}" style="width: 500px; height: 500px">--}}
+        <img class="ui medium rounded image h-50" src="data:image/jpeg;base64,{{$_SESSION['user']['image']}}">
 
         <div>
             <h1> - Change Image</h1>
