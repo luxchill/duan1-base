@@ -7,6 +7,7 @@ use User\Duan1\Controllers\Admin\DashboardController;
 use User\Duan1\Controllers\Admin\ProductController;
 use User\Duan1\Controllers\Admin\UserController;
 use User\Duan1\Controllers\Admin\CommentController;
+use User\Duan1\Controllers\Admin\ProfileController as AdminProfileController;
 // client
 use User\Duan1\Controllers\Client\HomeController;
 use User\Duan1\Controllers\Client\ShopController;
@@ -52,6 +53,7 @@ $router->mount('/news', function () use ($router) {
 // admin
 $router->mount('/admin', function () use ($router) {
 	$router->get('/', DashboardController::class . '@index');
+	$router->get('/profile/{id}', AdminProfileController::class . '@index');
 	// Users Manager
 	$router->mount('/users', function () use ($router) {
 		$router->get('/', UserController::class . '@index');

@@ -74,10 +74,14 @@ class CategoryController extends Controller
 		// $total_rows = $this->category->getTotalCount();
 		$total_page = ceil($total / $limit);
 
-		$data['categorys'] = $this->category->getAllPage($limit, $initial_page);
+		$categorys = $this->category->getAllPage($limit, $initial_page);
 		$data['total_page'] = $total_page;
 		// echo 'Page: ' . $id . "</br>";
 		// echo 'Total: ' . $total_page . "</br>";
-		return $this->renderViewAdmin($this->folder . 'index', $data);
+		return $this->renderViewAdmin($this->folder . 'index', [
+			'categorys' => $categorys,
+			'total_page' => $total_page,
+			'id' => $id
+		]);
 	}
 }
