@@ -24,12 +24,18 @@
     <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/summernote/summernote-bs4.css">
     <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
-
     <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/jquery-selectric/selectric.css">
+    <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/chocolat/dist/css/chocolat.css">
+    <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/duan1-php/public/components/assets/modules/codemirror/theme/duotone-dark.css">
+
     {{--    Template CSS--}}
     <link rel="stylesheet" href="/duan1-php/public/components/assets/css/style.css">
     <link rel="stylesheet" href="/duan1-php/public/components/assets/css/components.css">
+
 </head>
 
 <body>
@@ -69,21 +75,21 @@
                         </div>
                         <div class="search-item">
                             <a href="#">
-                                <img class="mr-3 rounded" width="30" src="assets/img/products/product-3-50.png"
+                                <img class="mr-3 rounded" width="30" src="/duan1-php/public/components/assets/img/products/product-3-50.png"
                                      alt="product">
                                 oPhone S9 Limited Edition
                             </a>
                         </div>
                         <div class="search-item">
                             <a href="#">
-                                <img class="mr-3 rounded" width="30" src="assets/img/products/product-2-50.png"
+                                <img class="mr-3 rounded" width="30" src="/duan1-php/public/components/assets/img/products/product-2-50.png"
                                      alt="product">
                                 Drone X2 New Gen-7
                             </a>
                         </div>
                         <div class="search-item">
                             <a href="#">
-                                <img class="mr-3 rounded" width="30" src="assets/img/products/product-1-50.png"
+                                <img class="mr-3 rounded" width="30" src="/duan1-php/public/components/assets/img/products/product-1-50.png"
                                      alt="product">
                                 Headphone Blitz
                             </a>
@@ -122,7 +128,7 @@
                         <div class="dropdown-list-content dropdown-list-message">
                             <a href="#" class="dropdown-item dropdown-item-unread">
                                 <div class="dropdown-item-avatar">
-                                    <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle">
+                                    <img alt="image" src="/duan1-php/public/components/assets/img/avatar/avatar-1.png" class="rounded-circle">
                                     <div class="is-online"></div>
                                 </div>
                                 <div class="dropdown-item-desc">
@@ -133,7 +139,7 @@
                             </a>
                             <a href="#" class="dropdown-item dropdown-item-unread">
                                 <div class="dropdown-item-avatar">
-                                    <img alt="image" src="assets/img/avatar/avatar-2.png" class="rounded-circle">
+                                    <img alt="image" src="/duan1-php/public/components/assets/img/avatar/avatar-2.png" class="rounded-circle">
                                 </div>
                                 <div class="dropdown-item-desc">
                                     <b>Dedik Sugiharto</b>
@@ -143,7 +149,7 @@
                             </a>
                             <a href="#" class="dropdown-item dropdown-item-unread">
                                 <div class="dropdown-item-avatar">
-                                    <img alt="image" src="assets/img/avatar/avatar-3.png" class="rounded-circle">
+                                    <img alt="image" src="/duan1-php/public/components/assets/img/avatar/avatar-3.png" class="rounded-circle">
                                     <div class="is-online"></div>
                                 </div>
                                 <div class="dropdown-item-desc">
@@ -154,7 +160,7 @@
                             </a>
                             <a href="#" class="dropdown-item">
                                 <div class="dropdown-item-avatar">
-                                    <img alt="image" src="assets/img/avatar/avatar-4.png" class="rounded-circle">
+                                    <img alt="image" src="/duan1-php/public/components/assets/img/avatar/avatar-4.png" class="rounded-circle">
                                 </div>
                                 <div class="dropdown-item-desc">
                                     <b>Ardian Rahardiansyah</b>
@@ -164,7 +170,7 @@
                             </a>
                             <a href="#" class="dropdown-item">
                                 <div class="dropdown-item-avatar">
-                                    <img alt="image" src="assets/img/avatar/avatar-5.png" class="rounded-circle">
+                                    <img alt="image" src="/duan1-php/public/components/assets/img/avatar/avatar-5.png" class="rounded-circle">
                                 </div>
                                 <div class="dropdown-item-desc">
                                     <b>Alfa Zulkarnain</b>
@@ -264,7 +270,7 @@
                     </div>
                 </li>
             </ul>
-        </nav>
+        </nav >
         @include('layouts.navbar')
         @yield('content')
         @include('layouts.footer')
@@ -286,10 +292,14 @@
 <script src="/duan1-php/public/components/assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
 <script src="/duan1-php/public/components/assets/modules/summernote/summernote-bs4.js"></script>
 <script src="/duan1-php/public/components/assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+<script src="/duan1-php/public/components/assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+<script src="/duan1-php/public/components/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
+<script src="/duan1-php/public/components/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<script src="/duan1-php/public/components/assets/modules/codemirror/lib/codemirror.js"></script>
+<script src="/duan1-php/public/components/assets/modules/codemirror/mode/javascript/javascript.js"></script>
 
-{{--    js core--}}
+{{--File js rieng--}}
 @yield('script')
-
 <!-- Template JS File -->
 <script src="/duan1-php/public/components/assets/js/scripts.js"></script>
 <script src="/duan1-php/public/components/assets/js/custom.js"></script>

@@ -24,8 +24,18 @@ class CategoryController extends Controller
 	public function create()
 	{
 		if (!empty($_POST)) {
-			$this->category->insert($_POST['name']);
-			header('location: /duan1-php/admin/categorys');
+			if(empty($_POST['name'])){
+				$_SESSION['errors']['name'] = 'Vui long nhap name';
+			}else{
+				unset($_SESSION['errors']['name']);
+			}
+
+			if(empty($_SESSION['errors'])){
+				$this->category->insert($_POST['name']);
+				header('location: /duan1-php/admin/categorys');
+			}else{
+				header('location: /duan1-php/admin/categorys/create');
+			}
 		}
 		return $this->renderViewAdmin($this->folder . __FUNCTION__);
 	}
@@ -51,11 +61,20 @@ class CategoryController extends Controller
 		}
 
 		if (!empty($_POST)) {
-			$this->category->update($id, $_POST['name']);
-			$_SESSION['success'] = 'Update category success';
-			header('location: /duan1-php/admin/categorys');
-		}
 
+			if(empty($_POST['name'])){
+				$_SESSION['errors']['name'] = 'Vui long nhap name';
+			}else{
+				unset($_SESSION['errors']['name']);
+			}
+
+			if(empty($_SESSION['errors'])){
+				$this->category->update($id, $_POST['name']);
+				header('location: /duan1-php/admin/categorys');
+			}else{
+				header('location: /duan1-php/admin/categorys/'.$id.'/update');
+			}
+		}
 		return $this->renderViewAdmin($this->folder . __FUNCTION__, $data);
 	}
 
@@ -67,7 +86,7 @@ class CategoryController extends Controller
 
 	public function page($id = '1')
 	{
-		$limit = 6;
+		$limit = 10;
 		$initial_page = ($id - 1) * $limit;
 		// $data['page_count'] = $this->category->getTotalCount();
 		$total = $this->category->getTotalCount();

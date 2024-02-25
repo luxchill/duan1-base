@@ -39,12 +39,46 @@ class ProductController extends Controller
 	public function create()
 	{
 		if (!empty($_POST)) {
-			$image = $_FILES['image']['tmp_name'];
-			$img = file_get_contents($image);
-			$imgBase64 = base64_encode($img);
 
-			$this->product->insert($_POST['name'], $_POST['price'], $imgBase64, $_POST['description'], $_POST['views'], $_POST['id_category']);
-			header('location: /duan1-php/admin/products');
+			if(empty($_POST['name'])){
+				$_SESSION['errors']['name'] = 'Vui long nhap name';
+			}else{
+				unset($_SESSION['errors']['name']);
+			}
+
+			if(empty($_POST['price'])){
+				$_SESSION['errors']['price'] = 'Vui long nhap price';
+			}else{
+				unset($_SESSION['errors']['price']);
+			}
+
+			if(empty($_FILES['image']['tmp_name'])){
+				$_SESSION['errors']['image'] = 'Vui long dang anh';
+			}else{
+				unset($_SESSION['errors']['image']);
+			}
+
+			if(empty($_POST['description'])){
+				$_SESSION['errors']['description'] = 'Vui long nhap description';
+			}else{
+				unset($_SESSION['errors']['description']);
+			}
+
+			if(empty($_POST['id_category'])){
+				$_SESSION['errors']['id_category'] = 'Vui long chon category';
+			}else{
+				unset($_SESSION['errors']['id_category']);
+			}
+
+			$convertDescription = htmlspecialchars($_POST['description']);
+			if(empty($_SESSION['errors'])){
+				$img = file_get_contents($_FILES['image']['tmp_name']);
+				$imgB64 = base64_encode($img);
+				$this->product->insert($_POST['name'], $_POST['price'], $imgB64, $convertDescription, $_POST['id_category']);
+				header('location: /duan1-php/admin/products');
+			}else{
+				header('location: /duan1-php/admin/products/create');
+			}
 		}
 
 		return $this->renderViewAdmin($this->folder . __FUNCTION__);
@@ -71,7 +105,7 @@ class ProductController extends Controller
 
 	public function page($page = '1')
 	{
-		$limit = 5;
+		$limit = 10;
 		$initial_page = ($page - 1) * $limit;
 		$total = $this->product->getTotalCount();
 		$total_page = ceil($total / $limit);

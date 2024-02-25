@@ -31,16 +31,15 @@ class Product extends Model
 		}
 	}
 
-	function insert($name, $price, $image, $description, $views, $id_category)
+	function insert($name, $price, $image, $description, $id_category)
 	{
 		try {
-			$sql = "INSERT INTO products (name, price, image, description, views, id_category) VALUES (:name, :price, :image, :description, :views, :id_category)";
+			$sql = "INSERT INTO products (name, price, image, description, id_category) VALUES (:name, :price, :image, :description, :id_category)";
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindParam(":name", $name);
 			$stmt->bindParam(":price", $price);
 			$stmt->bindParam(":image", $image);
 			$stmt->bindParam(":description", $description);
-			$stmt->bindParam(":views", $views);
 			$stmt->bindParam(":id_category", $id_category);
 			$stmt->execute();
 		}catch (\Exception $e){
@@ -112,6 +111,18 @@ class Product extends Model
 			$stmt->execute();
 			return $stmt->fetchAll();
 		} catch (\Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getTop5()
+	{
+		try {
+			$sql = "SELECT * FROM products LIMIT 5";
+			$stmt = $this->connect->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}catch (\Exception $e){
 			die($e->getMessage());
 		}
 	}

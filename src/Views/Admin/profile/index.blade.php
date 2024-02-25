@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="section-body">
-                <h2 class="section-title">Hi, Ujang!</h2>
+                <h2 class="section-title">Hi, {{ $_SESSION['user']['username'] }}</h2>
                 <p class="section-lead">
                     Change information about yourself on this page.
                 </p>
@@ -20,8 +20,8 @@
                     <div class="col-12 col-md-12 col-lg-5">
                         <div class="card profile-widget">
                             <div class="profile-widget-header">
-                                <img alt="image" src="assets/img/avatar/avatar-1.png"
-                                     class="rounded-circle profile-widget-picture">
+                                <img alt="image" src="data:image/jpeg;base64,{{ $_SESSION['user']['image'] }}"
+                                     class="rounded-circle profile-widget-picture " style="width: 80px; height: 80px;">
                                 <div class="profile-widget-items">
                                     <div class="profile-widget-item">
                                         <div class="profile-widget-item-label">Posts</div>

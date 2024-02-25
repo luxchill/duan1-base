@@ -1,28 +1,4 @@
 @extends('layouts.admin')
-{{--@section('title')--}}
-{{--DashBoard--}}
-{{--@endsection--}}
-{{--@section('content')--}}
-{{--@php--}}
-
-{{--if(isset($_SESSION['user'])){--}}
-{{--$role = $_SESSION['user']['role'];--}}
-
-{{--if($role != 1){--}}
-{{--header('location: /duan1-php/');--}}
-{{--}--}}
-
-{{--print_r($_SESSION['user']);--}}
-{{--}else{--}}
-{{--header('location: /duan1-php/');--}}
-{{--}--}}
-
-{{--@endphp--}}
-{{--<h1>Page Dashboard</h1>--}}
-
-
-{{--@endsection--}}
-
 @section('title', 'Dashboard')
 
 @section('content')
@@ -147,7 +123,7 @@
                         <div class="card-body" id="top-5-scroll">
                             <ul class="list-unstyled list-unstyled-border">
                                 <li class="media">
-                                    <img class="mr-3 rounded" width="55" src="assets/img/products/product-3-50.png"
+                                    <img class="mr-3 rounded" width="55" src="/duan1-php/public/components/assets/img/products/product-3-50.png"
                                          alt="product">
                                     <div class="media-body">
                                         <div class="float-right">
@@ -167,7 +143,7 @@
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="mr-3 rounded" width="55" src="assets/img/products/product-4-50.png"
+                                    <img class="mr-3 rounded" width="55" src="/duan1-php/public/components/assets/img/products/product-4-50.png"
                                          alt="product">
                                     <div class="media-body">
                                         <div class="float-right">
@@ -187,7 +163,7 @@
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="mr-3 rounded" width="55" src="assets/img/products/product-1-50.png"
+                                    <img class="mr-3 rounded" width="55" src="/duan1-php/public/components/assets/img/products/product-1-50.png"
                                          alt="product">
                                     <div class="media-body">
                                         <div class="float-right">
@@ -207,7 +183,7 @@
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="mr-3 rounded" width="55" src="assets/img/products/product-3-50.png"
+                                    <img class="mr-3 rounded" width="55" src="/duan1-php/public/components/assets/img/products/product-3-50.png"
                                          alt="product">
                                     <div class="media-body">
                                         <div class="float-right">
@@ -227,7 +203,7 @@
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="mr-3 rounded" width="55" src="assets/img/products/product-5-50.png"
+                                    <img class="mr-3 rounded" width="55" src="/duan1-php/public/components/assets/img/products/product-5-50.png"
                                          alt="product">
                                     <div class="media-body">
                                         <div class="float-right">
@@ -272,7 +248,7 @@
                                 <div>
                                     <div class="product-item pb-3">
                                         <div class="product-image">
-                                            <img alt="image" src="assets/img/products/product-4-50.png"
+                                            <img alt="image" src="/duan1-php/public/components/assets/img/products/product-4-50.png"
                                                  class="img-fluid">
                                         </div>
                                         <div class="product-details">
@@ -294,7 +270,7 @@
                                 <div>
                                     <div class="product-item">
                                         <div class="product-image">
-                                            <img alt="image" src="assets/img/products/product-3-50.png"
+                                            <img alt="image" src="/duan1-php/public/components/assets/img/products/product-3-50.png"
                                                  class="img-fluid">
                                         </div>
                                         <div class="product-details">
@@ -316,7 +292,7 @@
                                 <div>
                                     <div class="product-item">
                                         <div class="product-image">
-                                            <img alt="image" src="assets/img/products/product-1-50.png"
+                                            <img alt="image" src="/duan1-php/public/components/assets/img/products/product-1-50.png"
                                                  class="img-fluid">
                                         </div>
                                         <div class="product-details">
@@ -351,7 +327,7 @@
                                     <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                         <li class="media">
                                             <img class="img-fluid mt-1 img-shadow"
-                                                 src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image"
+                                                 src="/duan1-php/public/components/assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image"
                                                  width="40">
                                             <div class="media-body ml-3">
                                                 <div class="media-title">Indonesia</div>
@@ -361,7 +337,7 @@
                                         </li>
                                         <li class="media">
                                             <img class="img-fluid mt-1 img-shadow"
-                                                 src="assets/modules/flag-icon-css/flags/4x3/my.svg" alt="image"
+                                                 src="/duan1-php/public/components/assets/modules/flag-icon-css/flags/4x3/my.svg" alt="image"
                                                  width="40">
                                             <div class="media-body ml-3">
                                                 <div class="media-title">Malaysia</div>
@@ -371,7 +347,7 @@
                                         </li>
                                         <li class="media">
                                             <img class="img-fluid mt-1 img-shadow"
-                                                 src="assets/modules/flag-icon-css/flags/4x3/us.svg" alt="image"
+                                                 src="/duan1-php/public/components/assets/modules/flag-icon-css/flags/4x3/us.svg" alt="image"
                                                  width="40">
                                             <div class="media-body ml-3">
                                                 <div class="media-title">United States</div>
@@ -386,7 +362,7 @@
                                     <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                         <li class="media">
                                             <img class="img-fluid mt-1 img-shadow"
-                                                 src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image"
+                                                 src="/duan1-php/public/components/assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image"
                                                  width="40">
                                             <div class="media-body ml-3">
                                                 <div class="media-title">Indonesia</div>
@@ -396,7 +372,7 @@
                                         </li>
                                         <li class="media">
                                             <img class="img-fluid mt-1 img-shadow"
-                                                 src="assets/modules/flag-icon-css/flags/4x3/ps.svg" alt="image"
+                                                 src="/duan1-php/public/components/assets/modules/flag-icon-css/flags/4x3/ps.svg" alt="image"
                                                  width="40">
                                             <div class="media-body ml-3">
                                                 <div class="media-title">Palestine</div>
@@ -406,7 +382,7 @@
                                         </li>
                                         <li class="media">
                                             <img class="img-fluid mt-1 img-shadow"
-                                                 src="assets/modules/flag-icon-css/flags/4x3/de.svg" alt="image"
+                                                 src="/duan1-php/public/components/assets/modules/flag-icon-css/flags/4x3/de.svg" alt="image"
                                                  width="40">
                                             <div class="media-body ml-3">
                                                 <div class="media-title">Germany</div>
@@ -551,4 +527,8 @@
             </div>
         </section>
     </div>
+@endsection
+
+@section('script')
+    <script src="/duan1-php/public/components/assets/js/page/index.js"></script>
 @endsection
